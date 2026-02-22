@@ -3,197 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sierra - Customer Experiences</title>
+    <title>Sierra - Better Customer Experiences</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Typography Utilities */
-        .text-balance { text-wrap: balance; }
-        .text-pretty { text-wrap: pretty; }
-
-        /* Animation keyframes */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-                filter: blur(4px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* Animation Classes */
         .animate-fade-in-up {
             opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-fade-in {
             opacity: 0;
-            animation: fadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-scale-in {
             opacity: 0;
-            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Delays */
         .delay-0 { animation-delay: 0ms; }
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
         .delay-400 { animation-delay: 400ms; }
-        .delay-500 { animation-delay: 500ms; }
-        .delay-700 { animation-delay: 700ms; }
-        .delay-1000 { animation-delay: 1000ms; }
 
-        /* Glassmorphism */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up, .animate-fade-in, .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
-<body class="bg-[#8B5E3C] text-white overflow-x-hidden">
+<body class="antialiased font-sans text-white bg-gray-900 selection:bg-white/30">
 
-    <!-- Hero Container -->
-    <div class="relative min-h-screen w-full flex flex-col">
+    <section class="relative w-full h-screen min-h-[700px] overflow-hidden flex flex-col">
         
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0 animate-fade-in duration-1000">
-            <!-- Using a placeholder that matches the warm brown tones of the original image -->
-            <img src="https://placehold.co/1920x1080/8B5E3C/8B5E3C" alt="Background" class="w-full h-full object-cover">
-            <!-- Gradient overlay to mimic the lighting and ensure text readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20"></div>
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://placehold.co/1440x900/9c7257/9c7257?text=%20" alt="Woman smiling using Sierra" class="w-full h-full object-cover animate-scale-in delay-0" />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent animate-fade-in delay-0"></div>
         </div>
 
         <!-- Navigation -->
-        <header class="relative z-20 w-full px-6 py-6 md:px-10 flex items-center justify-between animate-fade-in delay-0">
+        <header class="relative z-20 w-full max-w-[1440px] mx-auto px-6 py-6 flex items-center justify-between animate-fade-in delay-0">
             <!-- Logo -->
-            <div class="flex items-center gap-3 cursor-pointer">
-                <div class="w-8 h-8 relative">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-white w-full h-full">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke-opacity="0.5"/>
-                        <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                        <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="currentColor"/>
-                        <circle cx="12" cy="6" r="1.5" fill="currentColor" />
-                        <circle cx="12" cy="18" r="1.5" fill="currentColor" />
-                        <circle cx="6.8" cy="9" r="1.5" fill="currentColor" />
-                        <circle cx="17.2" cy="9" r="1.5" fill="currentColor" />
-                        <circle cx="6.8" cy="15" r="1.5" fill="currentColor" />
-                        <circle cx="17.2" cy="15" r="1.5" fill="currentColor" />
-                    </svg>
-                </div>
-                <span class="text-lg font-medium tracking-widest uppercase">Sierra</span>
-            </div>
+            <a href="#" class="flex items-center gap-2.5 group">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 21C14.2091 21 16 16.9706 16 12C16 7.02944 14.2091 3 12 3C9.79086 3 8 7.02944 8 12C8 16.9706 9.79086 21 12 21Z" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/>
+                    <path d="M12 21C14.2091 21 16 16.9706 16 12C16 7.02944 14.2091 3 12 3C9.79086 3 8 7.02944 8 12C8 16.9706 9.79086 21 12 21Z" stroke="currentColor" stroke-width="1.5" transform="rotate(-60 12 12)"/>
+                    <path d="M12 21C14.2091 21 16 16.9706 16 12C16 7.02944 14.2091 3 12 3C9.79086 3 8 7.02944 8 12C8 16.9706 9.79086 21 12 21Z" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <span class="font-semibold tracking-widest text-[14px] uppercase mt-0.5">SIERRA</span>
+            </a>
 
-            <!-- Center Nav Links (Desktop) -->
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/90">
-                <a href="#" class="hover:text-white transition-colors">Product</a>
-                <a href="#" class="hover:text-white transition-colors">Industries</a>
-                <a href="#" class="hover:text-white transition-colors">Customers</a>
-                <a href="#" class="hover:text-white transition-colors">Company</a>
+            <!-- Center Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-[14px] font-medium text-white/90 hover:text-white transition-colors duration-200">Product</a>
+                <a href="#" class="text-[14px] font-medium text-white/90 hover:text-white transition-colors duration-200">Industries</a>
+                <a href="#" class="text-[14px] font-medium text-white/90 hover:text-white transition-colors duration-200">Customers</a>
+                <a href="#" class="text-[14px] font-medium text-white/90 hover:text-white transition-colors duration-200">Company</a>
             </nav>
 
             <!-- Right Actions -->
-            <div class="flex items-center gap-6 text-sm font-medium">
-                <a href="#" class="hidden sm:block hover:text-white/80 transition-colors">Sign in</a>
-                <a href="#" class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all duration-300 backdrop-blur-sm">
+            <div class="flex items-center gap-6">
+                <a href="#" class="hidden sm:block text-[14px] font-medium text-white/90 hover:text-white transition-colors duration-200">Sign in</a>
+                <a href="#" class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-[14px] font-medium hover:bg-white/20 transition-colors duration-200 backdrop-blur-sm active:scale-97">
                     Learn more
                 </a>
             </div>
         </header>
 
-        <!-- Main Content Area -->
-        <main class="relative z-10 flex-grow flex flex-col justify-center px-6 md:px-10 w-full max-w-[1400px] mx-auto mt-10 md:mt-0">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full">
-                
-                <!-- Left Column: Text -->
-                <div class="lg:col-span-7 flex flex-col items-start pt-10 lg:pt-0">
-                    <h1 class="text-balance text-5xl sm:text-6xl lg:text-[5.5rem] font-normal leading-[1.1] tracking-tight mb-10 animate-fade-in-up delay-200">
-                        Better customer experiences.<br class="hidden lg:block">
-                        Built on Sierra.
-                    </h1>
-                    
-                    <button class="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 transform hover:scale-105 animate-fade-in-up delay-400">
+        <!-- Main Content -->
+        <main class="relative z-10 flex-1 w-full max-w-[1440px] mx-auto px-6 flex flex-col justify-center pb-24">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-6xl lg:text-[80px] font-medium leading-[1.05] tracking-tight text-balance mb-10 animate-fade-in-up delay-100">
+                    Better customer<br>experiences.<br>Built on Sierra.
+                </h1>
+                <div class="animate-fade-in-up delay-200">
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-gray-900 text-[15px] font-medium hover:bg-gray-100 transition-colors duration-200 active:scale-97">
                         Learn more
-                    </button>
-                </div>
-
-                <!-- Right Column: Floating UI Elements -->
-                <div class="lg:col-span-5 relative h-[400px] lg:h-[600px] w-full flex flex-col justify-center lg:justify-end pb-20 pointer-events-none">
-                    
-                    <!-- Top Card (Sierra Agent) -->
-                    <div class="absolute top-[10%] right-0 lg:right-[-20px] w-full max-w-sm glass-card rounded-2xl p-5 animate-fade-in-up delay-700 animate-float" style="animation-duration: 7s;">
-                        <div class="flex items-center gap-2 mb-3 text-xs font-medium text-white/80 uppercase tracking-wide">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke-width="1.5"/>
-                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                            </svg>
-                            Sierra Agent
-                        </div>
-                        <p class="text-lg font-normal leading-snug text-white">
-                            Hi there, how can I help you today?
-                        </p>
-                    </div>
-
-                    <!-- Bottom Card (Marie) -->
-                    <div class="absolute bottom-[10%] right-0 lg:right-[40px] w-full max-w-sm glass-card rounded-2xl p-5 animate-fade-in-up delay-1000 animate-float" style="animation-duration: 8s; animation-delay: 1s;">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-5 h-5 rounded-full overflow-hidden bg-gray-300">
-                                <img src="https://placehold.co/40x40/555/FFF?text=M" alt="Marie" class="w-full h-full object-cover">
-                            </div>
-                            <span class="text-xs font-medium text-white/80 uppercase tracking-wide">Marie</span>
-                        </div>
-                        <p class="text-lg font-normal leading-snug text-white">
-                            Can we see our doctor first thing this morning?
-                        </p>
-                    </div>
-
+                    </a>
                 </div>
             </div>
         </main>
 
-    </div>
+        <!-- Floating UI Cards -->
+        <div class="absolute right-[5%] lg:right-[10%] bottom-[15%] lg:bottom-[20%] z-20 hidden md:flex flex-col gap-4 animate-fade-in-up delay-300">
+            <!-- Card 1 -->
+            <div class="w-[340px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl">
+                <div class="flex items-center gap-2 mb-2.5 text-white/70">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 21C14.2091 21 16 16.9706 16 12C16 7.02944 14.2091 3 12 3C9.79086 3 8 7.02944 8 12C8 16.9706 9.79086 21 12 21Z" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"/>
+                        <path d="M12 21C14.2091 21 16 16.9706 16 12C16 7.02944 14.2091 3 12 3C9.79086 3 8 7.02944 8 12C8 16.9706 9.79086 21 12 21Z" stroke="currentColor" stroke-width="1.5" transform="rotate(-60 12 12)"/>
+                        <path d="M12 21C14.2091 21 16 16.9706 16 12C16 7.02944 14.2091 3 12 3C9.79086 3 8 7.02944 8 12C8 16.9706 9.79086 21 12 21Z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span class="text-[13px] font-medium">Sierra Agent</span>
+                </div>
+                <p class="text-[15px] text-white font-medium leading-snug">
+                    Hi there, how can I help you today?
+                </p>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="w-[340px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl ml-12">
+                <div class="flex items-center gap-2 mb-2.5 text-white/70">
+                    <div class="w-4 h-4 rounded-full bg-gray-400 overflow-hidden flex-shrink-0">
+                        <img src="https://placehold.co/32x32/cccccc/cccccc?text=%20" alt="Marie" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-[13px] font-medium">Marie</span>
+                </div>
+                <p class="text-[15px] text-white font-medium leading-snug">
+                    Can we see our doctor first thing this morning?
+                </p>
+            </div>
+        </div>
+
+    </section>
 
 </body>
 </html>
